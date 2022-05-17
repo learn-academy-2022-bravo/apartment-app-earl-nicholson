@@ -13,9 +13,17 @@ class Header extends Component {
     console.log("logged_in:", logged_in)
     console.log("current_user:", current_user)
     return (
-      <>
-        <h1>React in Rails with Devise</h1>
+      <div className="nav-con">
         <Nav>
+
+        <h1>
+          <a href= '/' >Apartment Finder</a>
+        </h1>
+
+        <NavItem>
+                <a href='/apartmentindex' className="nav-link">List of our Apartments</a>
+        </NavItem>
+
           {logged_in &&
             <NavItem>
               <a href={sign_out_route} className="nav-link">Sign Out</a>
@@ -32,7 +40,8 @@ class Header extends Component {
             </NavItem>
           }
         </Nav>
-      </>
+        
+      </div>
     )
   }
 }
