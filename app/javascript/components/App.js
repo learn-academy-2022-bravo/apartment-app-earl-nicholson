@@ -21,37 +21,36 @@ class App extends Component {
     }
   }
 
-    componentDidMount () {
-      this.readApartment()
-    }
+  componentDidMount () {
+    this.readApartment()
+  }
 
-    readApartment= () => {
-      fetch ("/apartments")
-      .then(response => response.json())
-      .then(payload => this.setState({apartments: payload}))
-      .catch(errors => console.log('apartments read error: ', errors))
-    }
+  readApartment= () => {
+    fetch ("/apartments")
+    .then(response => response.json())
+    .then(payload => this.setState({apartments: payload}))
+    .catch(errors => console.log('apartments read error: ', errors))
+  }
 
   render() {
     return (
-      
-        <Router>
-          <Header {...this.props} />
-          <Switch>
-            <Route exact path="/" component={Home} />
+      <Router>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" component={Home} />
 
-            <Route 
-            path="/apartmentindex" 
-            render = {(props) => <ApartmentIndex apartments ={this.state.apartments}/>}
-            />
+          <Route 
+          path="/apartmentindex" 
+          render = {(props) => <ApartmentIndex apartments ={this.state.apartments}/>}
+          />
 
-            <Route path="/apartmentshow" component={ApartmentShow} />
-            <Route path="/apartmentnew" component={ApartmentNew} />
-            <Route path="/apartmentedit" component={ApartmentEdit} />
-            <Route component={NotFound}/>
-          </Switch>
-          <Footer />
-        </Router>
+          <Route path="/apartmentshow" component={ApartmentShow} />
+          <Route path="/apartmentnew" component={ApartmentNew} />
+          <Route path="/apartmentedit" component={ApartmentEdit} />
+          <Route component={NotFound}/>
+        </Switch>
+        <Footer />
+      </Router>
         
         
   
