@@ -44,7 +44,16 @@ class App extends Component {
           render = {(props) => <ApartmentIndex apartments ={this.state.apartments}/>}
           />
 
-          <Route path="/apartmentshow" component={ApartmentShow} />
+          <Route 
+          path="/apartmentshow/:id" 
+          render={(props) => { 
+            let id= +props.match.params.id
+            let apartment = this.state.apartments.find(apartmentObject => apartmentObject.id === id)
+            console.log(apartment);
+            return <ApartmentShow apartment={apartment}  />
+          }}
+          />
+          
           <Route path="/apartmentnew" component={ApartmentNew} />
           <Route path="/apartmentedit" component={ApartmentEdit} />
           <Route component={NotFound}/>
