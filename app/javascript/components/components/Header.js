@@ -21,7 +21,7 @@ class Header extends Component {
         </h1>
 
         <NavItem>
-                <a href='/apartmentindex' className="nav-link">List of our Apartments</a>
+                <a href='/apartmentindex' className="nav-link">List of all of the available Apartments</a>
         </NavItem>
 
           {logged_in &&
@@ -29,6 +29,13 @@ class Header extends Component {
               <a href={sign_out_route} className="nav-link">Sign Out</a>
             </NavItem>
           }
+
+          {logged_in &&
+            <NavItem>
+              <a href='/userapartmentindex' className="nav-link">View Your Listings</a>
+            </NavItem>
+          }
+
           {!logged_in &&
             <NavItem>
               <a href={sign_in_route} className="nav-link">Sign In</a>

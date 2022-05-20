@@ -8,15 +8,15 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
 // Imports in the component we are going to be testing.
-import ApartmentIndex from './ApartmentIndex'
+import UserApartment from './UserApartment'
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When ApartmentIndex renders", () => {
   it("displays a heading", () => {
-    const apartmentIndex = shallow(<ApartmentIndex />)
+    const apartmentIndex = shallow(<UserApartment />)
     const apartmentIndexHeading = apartmentIndex.find("h3")
-    expect(apartmentIndexHeading.text()).toEqual("View a list of all available apartments")
+    expect(apartmentIndexHeading.text()).toEqual("Your Apartment Listings")
   })
 })
